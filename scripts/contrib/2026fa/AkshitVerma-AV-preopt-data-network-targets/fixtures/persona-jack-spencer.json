@@ -1,0 +1,35 @@
+{
+  "_fictional": "FICTIONAL PERSONA - safe to commit. Every field below is your-input.",
+  "name": "Jack Spencer",
+  "email": "jack.spencer@example.com",
+  "home_city": "Chicago, IL",
+  "program": "MS Information Systems (STEM-designated)",
+  "visa": "F-1, pre-OPT (OPT not yet approved); will need H-1B sponsorship later",
+  "graduation": "2026-12",
+  "opt_start_date": "2027-01-23",
+  "opt_end_date": "2028-01-22",
+  "unemployment_ceiling_days": 90,
+  "hiring_lag_days": 60,
+  "funding_window_months": 24,
+  "target_soc": ["15-2051.01", "15-1243.01"],
+  "target_title_patterns": [
+    "\\bdata (analyst|engineer)",
+    "\\banalytics engineer",
+    "\\bbusiness intelligence",
+    "\\bbi (analyst|developer|engineer)",
+    "\\betl\\b",
+    "\\bdata warehous"
+  ],
+  "exclude_posting_title_patterns": [
+    "\\b(senior|sr\\.?|staff|principal|lead|manager|director|head|vp|vice president)\\b",
+    "\\bintern(ship)?\\b",
+    "\\b(contract|student worker|part[- ]time|co-?op|temporary)\\b"
+  ],
+  "exclude_posting_location_patterns": [
+    "india", "bengaluru", "bangalore", "hyderabad", "pune", "chennai",
+    "mexico", "tijuana", "canada", "toronto", "vancouver",
+    "united kingdom", "london", "ireland", "dublin", "poland", "germany",
+    "singapore", "brazil", "australia", "japan", "philippines"
+  ],
+  "preferred_locations": ["chicago", "remote"]
+}

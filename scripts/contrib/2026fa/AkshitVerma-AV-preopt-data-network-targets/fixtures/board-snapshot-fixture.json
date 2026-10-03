@@ -1,0 +1,27 @@
+{
+  "_about": "TEST FIXTURE — SYNTHETIC postings (titles and example.com URLs invented for the test; NOT real job listings). Company names are real CSV rows so the sponsorship join is real.",
+  "fetched_at": "2026-10-03T12:00:00+00:00",
+  "mode": "fixture",
+  "boards": {
+    "OUTSET MEDICAL INC": {"http_status": 200, "error": null, "url": "fixture", "postings": [
+      {"title": "Area Sales Manager", "location": "Chicago", "url": "https://example.com/fixture/om-1"},
+      {"title": "Field Service Engineer II", "location": "Freeport, Illinois", "url": "https://example.com/fixture/om-2"}]},
+    "PINTEREST INC": {"http_status": 200, "error": null, "url": "fixture", "postings": [
+      {"title": "Data Analyst, Ads Measurement", "location": "Remote, US", "url": "https://example.com/fixture/pin-1"},
+      {"title": "Software Engineer", "location": "San Francisco, CA", "url": "https://example.com/fixture/pin-2"}]},
+    "OMADA HEALTH INC": {"http_status": 200, "error": null, "url": "fixture", "postings": [
+      {"title": "Business Intelligence Analyst", "location": "Chicago, IL", "url": "https://example.com/fixture/om-bi"}]},
+    "GUSTO INC": {"http_status": 200, "error": null, "url": "fixture", "postings": [
+      {"title": "Senior Data Engineer", "location": "Denver, CO", "url": "https://example.com/fixture/gu-1"},
+      {"title": "Data Engineer Intern", "location": "San Francisco, CA", "url": "https://example.com/fixture/gu-2"},
+      {"title": "Account Executive", "location": "Remote", "url": "https://example.com/fixture/gu-3"}]},
+    "UPSTART NETWORK INC": {"http_status": 200, "error": null, "url": "fixture", "postings": [
+      {"title": "Data Engineer", "location": "Bengaluru, India", "url": "https://example.com/fixture/up-1"},
+      {"title": "Contract Student Worker - Data Analyst (Part-time)", "location": "San Mateo, CA", "url": "https://example.com/fixture/up-3"},
+      {"title": "Product Manager", "location": "San Mateo, CA", "url": "https://example.com/fixture/up-2"}]},
+    "BYHEART INC": {"http_status": 200, "error": null, "url": "fixture", "postings": [
+      {"title": "Data Analyst", "location": "New York, NY", "url": "https://example.com/fixture/bh-1"}]},
+    "KLAVIYO INC": {"http_status": 200, "error": null, "url": "fixture", "postings": []},
+    "COURSERA INC": {"http_status": 404, "error": "HTTP 404", "url": "fixture", "postings": []}
+  }
+}

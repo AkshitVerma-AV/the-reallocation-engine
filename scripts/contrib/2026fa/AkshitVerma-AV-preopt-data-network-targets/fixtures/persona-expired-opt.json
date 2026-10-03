@@ -1,0 +1,19 @@
+{
+  "_fictional": "FICTIONAL PERSONA - failure-case fixture: OPT already ended before the run date. G0 must stop with exit 3 and write nothing.",
+  "name": "Expired OPT Fixture",
+  "email": "expired.opt@example.com",
+  "home_city": "Chicago, IL",
+  "program": "MS Information Systems (STEM-designated)",
+  "visa": "F-1 OPT (ended)",
+  "graduation": "2025-05",
+  "opt_start_date": "2025-06-01",
+  "opt_end_date": "2026-05-31",
+  "unemployment_ceiling_days": 90,
+  "hiring_lag_days": 60,
+  "funding_window_months": 24,
+  "target_soc": ["15-2051.01"],
+  "target_title_patterns": ["\\bdata (analyst|engineer)"],
+  "exclude_posting_title_patterns": [],
+  "exclude_posting_location_patterns": [],
+  "preferred_locations": ["chicago"]
+}

@@ -1,0 +1,16 @@
+{
+  "_about": "TEST FIXTURE. Board map for the offline test. Pairs with board-snapshot-fixture.json (synthetic postings). Each entry exercises one path.",
+  "boards": [
+    {"company_name": "OUTSET MEDICAL INC", "ats": "greenhouse", "slug": "outsetmedical", "confirmed": true, "_case": "none + Likely + recent funding -> NETWORK"},
+    {"company_name": "PINTEREST INC", "ats": "greenhouse", "slug": "pinterest", "confirmed": true, "_case": "live + Proven -> APPLY-TAILOR"},
+    {"company_name": "OMADA HEALTH INC", "ats": "greenhouse", "slug": "omadahealth", "confirmed": true, "_case": "live + Likely -> APPLY-TAILOR (Consider), Chicago posting flagged"},
+    {"company_name": "GUSTO INC", "ats": "greenhouse", "slug": "gusto", "confirmed": true, "_case": "only senior/intern data postings -> none; Proven but stale funding -> SKIP network-blocked"},
+    {"company_name": "UPSTART NETWORK INC", "ats": "greenhouse", "slug": "upstart", "confirmed": true, "_case": "only non-US data posting -> none -> SKIP network-blocked"},
+    {"company_name": "BYHEART INC", "ats": "greenhouse", "slug": "byheart", "confirmed": true, "_case": "live + Possible -> scorer Skip"},
+    {"company_name": "KLAVIYO INC", "ats": "ashby", "slug": "klaviyo", "confirmed": true, "_case": "board returns 0 postings -> unresolved -> MANUAL-CHECK, never scored"},
+    {"company_name": "COURSERA INC", "ats": "greenhouse", "slug": "coursera", "confirmed": true, "_case": "HTTP 404 -> unresolved -> MANUAL-CHECK"},
+    {"company_name": "ZOOX INC", "ats": "lever", "slug": "zoox", "confirmed": true, "_case": "confirmed but absent from snapshot -> unresolved"},
+    {"company_name": "SIGMA COMPUTING INC", "ats": "greenhouse", "slug": "sigmacomputing", "confirmed": false, "_case": "not confirmed -> MANUAL-CHECK, no fetch"},
+    {"company_name": "NOT A REAL COMPANY LLC", "ats": "greenhouse", "slug": "notareal", "confirmed": true, "_case": "absent from CSV -> board_map_unmatched, never scored, never p = 0"}
+  ]
+}
