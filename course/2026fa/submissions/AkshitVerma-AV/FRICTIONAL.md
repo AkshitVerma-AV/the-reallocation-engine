@@ -186,3 +186,27 @@ decisions or words. Lines marked **[AI]** are work the agent did that I reviewed
   checked:** `pii-scan.mjs --diff` only scans added lines (`+`), not the commit
   `Author:` header, so CI won't flag it. The contract's allowed list names GitHub
   noreply addresses; I accepted that difference knowingly.
+
+## 2026-10-03 — Clean-checkout test (step 4) → TEST-REPORT.md
+
+- **[ME] Akshit Verma ran** the clean checkout myself: a fresh clone of `98736cc`,
+  then doctor, verify, the documented `python3` command, tests, conformance, the
+  expired-OPT case, the PII scan and the namespace check. All outputs are pasted in
+  TEST-REPORT.md.
+- **Broke [ME]:** `npm install` → `npm.ps1 cannot be loaded because running scripts
+  is disabled`. **Fixed [ME]:** `Set-ExecutionPolicy -Scope Process -ExecutionPolicy
+  Bypass` (session only; the agent suggested it).
+- **Decided [ME]:** not to run `npm audit fix` / `npm approve-scripts`, because
+  they would modify `package.json` / `package-lock.json` outside my namespaces.
+- **Broke [ME]:** `npm run verify` failed on 4 repo `.sh` files in PowerShell,
+  before and after my run. **Diagnosed [AI]:** in PowerShell, `bash` is the WSL
+  launcher (`C:\Windows\system32\bash.exe`) and no Linux distribution is
+  installed, so every `bash -n` fails. In Git Bash it passes. **[AI] confirmed**
+  that `verify` passes in my clean checkout with `C:\Program Files\Git\bin` first
+  on the PATH. That run is labeled as the agent's in TEST-REPORT §E2.
+- **Result [ME]:** prototype counts identical to run-2; 25/25 tests; branch PII
+  scan clean; 46 files, all inside my four namespaces.
+- **Learned [ME, AI-drafted at Akshit's request, accepted by Akshit]:** "runs on a
+  fresh clone" depends on the shell as well as the repo. On Windows, three
+  environment gaps (CRLF, the PowerShell execution policy, WSL `bash`) each
+  produced a failure that looked like a code problem and wasn't.
