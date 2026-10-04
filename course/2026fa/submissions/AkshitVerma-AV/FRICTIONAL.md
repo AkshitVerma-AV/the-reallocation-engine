@@ -210,3 +210,34 @@ decisions or words. Lines marked **[AI]** are work the agent did that I reviewed
   fresh clone" depends on the shell as well as the repo. On Windows, three
   environment gaps (CRLF, the PowerShell execution policy, WSL `bash`) each
   produced a failure that looked like a code problem and wasn't.
+
+## 2026-10-03/04 — Push, PR #44, and CI
+
+- **[ME] Akshit Verma approved** the push and asked the agent to install `gh` and
+  open the PR. **[AI]** installed GitHub CLI 2.102.0 (`winget`, user scope). **[ME]**
+  authorized it in the browser (device code). **[AI]** pushed the branch and opened
+  https://github.com/nikbearbrown/the-reallocation-engine/pull/44 (2 commits,
+  47 files, head `4eb9bd4`).
+- **Found [AI]:** both workflows are `action_required`. GitHub holds CI on a
+  first-time contributor's fork PR until a maintainer approves it. I can't approve
+  it myself.
+- **Found [AI]:** the instructor's own `main` (`015843d`, my merge base) fails
+  "Contrib Gate" on every recent commit. CI logs:
+  - `harness-regression`: `Cannot find module …/scripts/test/gate-behavior-harness.mjs`.
+    4 of the 6 harness scripts the job calls don't exist on `main`
+    (`scripts/test/gate-behavior-harness.mjs`, `scripts/test/fuzz-invariants.mjs`,
+    `scripts/gates/gate-behavior-harness.mjs`, `scripts/score/scorer-harness.mjs`).
+    The other 2 run and pass, but don't print the text CI greps for ("17/17
+    passed", "VALID").
+  - `doctor-and-pii`: the working-tree `pii-scan` stops on an email-address match in
+    `package-lock.json`: the contact address inside an npm deprecation notice.
+- **Checked [AI]:** every CI job replicated locally on `4eb9bd4`. verify,
+  conformance, manifest-check, doctor, `pii-scan --diff`, and contrib-scope (47
+  files, 0 outside namespaces, no protected paths) pass. The two failures above
+  are identical to `main`'s, and my branch changes none of the files involved. CI
+  green isn't reachable for any student PR until those are fixed upstream. This is
+  documented in the PR description.
+- **AI slip, caught before push:** the first draft of this entry quoted that
+  lockfile address verbatim. The branch-history `pii-scan --diff` flagged
+  FRICTIONAL.md, and because the push only runs after a clean scan, nothing was
+  pushed. The unpushed commit was amended with the address described, not quoted.
