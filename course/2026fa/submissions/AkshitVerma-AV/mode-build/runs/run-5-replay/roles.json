@@ -1,0 +1,80 @@
+[
+  {
+    "role_id": "p000-klaviyoinc-analyticsenginee",
+    "company": "KLAVIYO INC",
+    "title": "Analytics Engineer",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "Proven",
+      "source": "record",
+      "basis": {
+        "approvals": 154,
+        "approval_rate": 97.47,
+        "rule": "tier-rule v0.1.0",
+        "rule_source": "your-input"
+      }
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "record",
+      "basis": "posting present in the board API at fetch time"
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input",
+      "basis": "factor = min(1, (opt_start + ceiling − max(as_of + lag, opt_start)) / ceiling)"
+    }
+  },
+  {
+    "role_id": "p001-sigmacomputingin-dataengineer",
+    "company": "SIGMA COMPUTING INC",
+    "title": "Data Engineer",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "Proven",
+      "source": "record",
+      "basis": {
+        "approvals": 136,
+        "approval_rate": 100.0,
+        "rule": "tier-rule v0.1.0",
+        "rule_source": "your-input"
+      }
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "record",
+      "basis": "posting present in the board API at fetch time"
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input",
+      "basis": "factor = min(1, (opt_start + ceiling − max(as_of + lag, opt_start)) / ceiling)"
+    }
+  },
+  {
+    "role_id": "p002-sigmacomputingin-dataengineer",
+    "company": "SIGMA COMPUTING INC",
+    "title": "Data Engineer",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "Proven",
+      "source": "record",
+      "basis": {
+        "approvals": 136,
+        "approval_rate": 100.0,
+        "rule": "tier-rule v0.1.0",
+        "rule_source": "your-input"
+      }
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "record",
+      "basis": "posting present in the board API at fetch time"
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input",
+      "basis": "factor = min(1, (opt_start + ceiling − max(as_of + lag, opt_start)) / ceiling)"
+    }
+  }
+]

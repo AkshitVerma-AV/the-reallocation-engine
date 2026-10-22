@@ -1,0 +1,44 @@
+{
+  "_about": "SYNTHETIC test fixture. Company names are real 80 Days CSV rows so the sponsorship join is exercised; every posting, URL and pay value below is invented for tests.",
+  "fetched_at": "2026-10-19T12:00:00+00:00",
+  "mode": "live",
+  "boards": {
+    "KLAVIYO INC": {
+      "ats": "greenhouse", "slug": "klaviyo", "url": "https://boards-api.greenhouse.io/v1/boards/klaviyo/jobs",
+      "http_status": 200, "error": null, "postings_total": 5,
+      "postings": [
+        {"title": "Data Analyst", "location": "Boston, MA", "url": "https://example.com/gh/1",
+         "pay_input_ranges": [{"min_cents": 8500000, "max_cents": 11000000, "currency_type": "USD", "title": "US"},
+                              {"min_cents": 9000000, "max_cents": 12000000, "currency_type": "USD", "title": "NYC"}],
+         "text": "Example posting."},
+        {"title": "Senior Data Engineer", "location": "Boston, MA", "url": "https://example.com/gh/2",
+         "pay_input_ranges": [], "text": "Senior role."},
+        {"title": "Data Engineer", "location": "Toronto, Ontario, Canada", "url": "https://example.com/gh/3",
+         "pay_input_ranges": [], "text": "Canada role."},
+        {"title": "Business Intelligence Analyst", "location": "Remote, US", "url": "https://example.com/gh/4",
+         "pay_input_ranges": [], "text": "No pay stated here."}
+      ]
+    },
+    "SIGMA COMPUTING INC": {
+      "ats": "greenhouse", "slug": "sigmacomputing", "url": "https://boards-api.greenhouse.io/v1/boards/sigmacomputing/jobs",
+      "http_status": 200, "error": null, "postings_total": 3,
+      "postings": [
+        {"title": "Data Engineer", "location": "New York City, NY", "url": "https://example.com/gh/5",
+         "pay_input_ranges": [],
+         "text": "Additional Job details The base salary range for this position is $140k - $180k annually. Compensation may vary."}
+      ]
+    },
+    "ZOOX INC": {
+      "ats": "lever", "slug": "zoox", "url": "https://api.lever.co/v0/postings/zoox?mode=json",
+      "http_status": 200, "error": null, "postings_total": 2,
+      "postings": [
+        {"title": "Data Analyst", "location": "Foster City, CA", "url": "https://example.com/lv/1",
+         "salaryRange": {"currency": "USD", "interval": "per-hour-wage", "min": 40, "max": 55}, "text": ""}
+      ]
+    },
+    "ROKU INC": {
+      "ats": "greenhouse", "slug": "roku", "url": "https://boards-api.greenhouse.io/v1/boards/roku/jobs",
+      "http_status": 200, "error": null, "postings_total": 0, "postings": []
+    }
+  }
+}

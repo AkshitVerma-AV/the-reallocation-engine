@@ -1,0 +1,6 @@
+$ python3 scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/lottery_weight.py --persona scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/persona-jack-spencer.json --soc-map scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/soc-map.json --boards scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/boards.json --snapshot course/2026fa/submissions/AkshitVerma-AV/mode-build/runs/run-4-live/board-snapshot.json --as-of 2026-10-19 --offers scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/offers-scenario.json --out-dir course/2026fa/submissions/AkshitVerma-AV/mode-build/runs/run-5-replay
+✓ scored 3 roles → Apply 3 · Consider 0 · Skip 0 (skip 0%)
+  course\2026fa\submissions\AkshitVerma-AV\mode-build\runs\run-5-replay\role-scores.json  +  course\2026fa\submissions\AkshitVerma-AV\mode-build\runs\run-5-replay\role-scores.md
+✓ G0 3 reachable lottery window(s) · 3 entry-eligible US posting(s) of 20 data-titled · bracketed 3 (BRACKET-UNRESOLVED 1 · CLEARS-LEVEL-II 2) · MANUAL-CHECK 0 · offers 4 (bracketed 3)
+  course\2026fa\submissions\AkshitVerma-AV\mode-build\runs\run-5-replay\lottery-weight.json  +  lottery-weight.md
+[exit 0]

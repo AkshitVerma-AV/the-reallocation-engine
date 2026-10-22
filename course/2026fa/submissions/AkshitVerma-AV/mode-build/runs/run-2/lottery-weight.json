@@ -1,0 +1,1832 @@
+{
+  "recipe": "data-lottery-weight",
+  "recipe_version": "0.1.0",
+  "as_of": "2026-10-19",
+  "run": {
+    "command": "scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/lottery_weight.py --persona scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/persona-jack-spencer.json --soc-map scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/soc-map.json --boards scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/boards.json --live --offers scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/offers-scenario.json --out-dir course/2026fa/submissions/AkshitVerma-AV/mode-build/runs/run-2",
+    "persona": "scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/persona-jack-spencer.json",
+    "persona_fictional": true,
+    "boards": "scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/boards.json",
+    "soc_map": "scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/soc-map.json",
+    "offers": "scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/offers-scenario.json",
+    "board_mode": "live"
+  },
+  "sources": {
+    "oews": "data/bls/oesm24nat/national_M2024_dl.xlsx (BLS OEWS May 2024, national, detailed occupations)",
+    "sponsorship": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv (columns kept: ['company_name', 'state', 'Total Approvals', 'Total Denials', 'Approval_Rate', 'median_salary_offered', 'top_job_titles_sponsored'])",
+    "scorer": "scripts/score/role-scorer.mjs",
+    "tier_rule": {
+      "value": {
+        "version": "tier-rule v0.1.0",
+        "Proven": "approvals >= 50 and approval_rate >= 90 -> p 0.90",
+        "Likely": "approvals >= 10 -> p 0.60",
+        "Possible": "approvals 1-9 -> p 0.40",
+        "None": "approvals == 0 or no row -> p 0.00"
+      },
+      "source": "your-input"
+    },
+    "rules": {
+      "current": {
+        "thresholds": [
+          17,
+          34,
+          50,
+          67
+        ],
+        "status": "in force",
+        "basis": "OFLC four-level structure, commonly cited as ~17th/34th/50th/67th OEWS percentiles; used by the weighted selection rule (90 FR 60864, effective 2026-02-27)"
+      },
+      "dol-nprm-2026": {
+        "thresholds": [
+          34,
+          52,
+          70,
+          88
+        ],
+        "status": "PROPOSED, NOT IN FORCE",
+        "basis": "DOL proposed rule published 2026-03-27 (docket ETA-2026-0001); not final as of the recipe date"
+      }
+    },
+    "soc_map_confirmed_by": "Akshit Verma (G3, 2026-10-19) — confirmed all four families as drafted, after run-1"
+  },
+  "timeline": {
+    "authorized_through": {
+      "value": "2030-01-22",
+      "source": "your-input",
+      "basis": "opt_end_date + 24 months STEM OPT"
+    },
+    "stem_opt_eligible": {
+      "value": true,
+      "source": "your-input"
+    },
+    "attempts": [
+      {
+        "fiscal_year": 2028,
+        "opens": {
+          "value": "2027-03-01",
+          "source": "your-input",
+          "assumed": true
+        },
+        "reachable": true,
+        "why_not": []
+      },
+      {
+        "fiscal_year": 2029,
+        "opens": {
+          "value": "2028-03-01",
+          "source": "your-input",
+          "assumed": true
+        },
+        "reachable": true,
+        "why_not": []
+      },
+      {
+        "fiscal_year": 2030,
+        "opens": {
+          "value": "2029-03-01",
+          "source": "your-input",
+          "assumed": true
+        },
+        "reachable": true,
+        "why_not": []
+      },
+      {
+        "fiscal_year": 2031,
+        "opens": {
+          "value": "2030-03-01",
+          "source": "your-input",
+          "assumed": true
+        },
+        "reachable": false,
+        "why_not": [
+          "opens 2030-03-01, after work authorization ends 2030-01-22"
+        ]
+      }
+    ],
+    "attempts_reachable": 3,
+    "next_window": 2028,
+    "offer_needed_before": "2027-03-01",
+    "scorer_factor": 1.0,
+    "slack_days": 90,
+    "formula": "factor = min(1, (opt_start + ceiling − max(as_of + lag, opt_start)) / ceiling)",
+    "assumptions": {
+      "hiring_lag_days": {
+        "value": 60,
+        "source": "your-input"
+      },
+      "unemployment_ceiling_days": {
+        "value": 90,
+        "source": "your-input"
+      },
+      "opt_start_date": {
+        "value": "2027-01-23",
+        "source": "your-input"
+      },
+      "opt_end_date": {
+        "value": "2028-01-22",
+        "source": "your-input"
+      }
+    }
+  },
+  "audit": {
+    "boards_fetched": 16,
+    "boards_unresolved": 0,
+    "postings_total": 1264,
+    "data_title_postings": 20,
+    "excluded_title_rule": 14,
+    "excluded_non_us": 3,
+    "entry_eligible_us": 3
+  },
+  "counts": {
+    "postings_assessed": 3,
+    "by_read": {
+      "BRACKET-UNRESOLVED": 1,
+      "CLEARS-LEVEL-II": 2
+    },
+    "manual_check": 0,
+    "offers": 4,
+    "offers_assessed": 3
+  },
+  "rows": [
+    {
+      "kind": "posting",
+      "company": "KLAVIYO INC",
+      "title": "Analytics Engineer",
+      "location": {
+        "value": "Boston, MA",
+        "source": "record"
+      },
+      "url": "https://www.klaviyo.com/careers/jobs/7737707003?gh_jid=7737707003",
+      "board": {
+        "ats": "greenhouse",
+        "slug": "klaviyo"
+      },
+      "liveness": {
+        "value": "live",
+        "source": "record",
+        "basis": "present in the board API at fetch time; cross-check with npm run ats:liveness"
+      },
+      "sponsorship": {
+        "tier": "Proven",
+        "p": 0.9,
+        "approvals": 154,
+        "approval_rate": 97.47,
+        "top_titles": [
+          "Business Intelligence Engineer",
+          "Software Engineer II",
+          "Engineering Manager Data Exchange",
+          "Engineering Manager II- SMS",
+          "Senior Software Engineer"
+        ],
+        "company_median_salary": 126000.0,
+        "basis": "80 Days CSV row (company-wide counts; no SOC, no title-level wages)"
+      },
+      "status": "ASSESSED",
+      "reason": null,
+      "pay": {
+        "value": {
+          "min": 112000.0,
+          "max": 168000.0,
+          "currency": "USD",
+          "interval": "unstated (Greenhouse pay_input_ranges)",
+          "method": "structured",
+          "range_titles": [
+            "Base Pay Range For US Locations:"
+          ],
+          "n_ranges": 1
+        },
+        "source": "record"
+      },
+      "soc_family": "analytics-engineer",
+      "per_soc": [
+        {
+          "soc": "15-2051",
+          "why_plausible": {
+            "value": "analytics engineering sits on the analysis side of data work; no O*NET alternate title 'Analytics Engineer' in the sample",
+            "source": "your-input"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Data Scientists",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 63650.0,
+              "25": 82630.0,
+              "50": 112590.0,
+              "75": 155810.0,
+              "90": 194410.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 1,
+                "level_max": 2,
+                "entries_min": 1,
+                "entries_max": 2
+              },
+              "ceiling": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 4,
+                "level_max": 4,
+                "entries_min": 4,
+                "entries_max": 4
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              },
+              "ceiling": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              }
+            }
+          }
+        },
+        {
+          "soc": "15-1243",
+          "why_plausible": {
+            "value": "builds warehouse models and pipelines (Database Architects / Data Warehousing Specialists)",
+            "source": "your-input"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Database Architects",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 81630.0,
+              "25": 107900.0,
+              "50": 135980.0,
+              "75": 169480.0,
+              "90": 209990.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 1,
+                "level_max": 2,
+                "entries_min": 1,
+                "entries_max": 2
+              },
+              "ceiling": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              },
+              "ceiling": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 1,
+                "level_max": 3,
+                "entries_min": 1,
+                "entries_max": 3
+              }
+            }
+          }
+        },
+        {
+          "soc": "15-1252",
+          "why_plausible": {
+            "value": "data-platform engineering roles are often filed as Software Developers",
+            "source": "your-input"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Software Developers",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 79850.0,
+              "25": 103050.0,
+              "50": 133080.0,
+              "75": 169000.0,
+              "90": 211450.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 1,
+                "level_max": 2,
+                "entries_min": 1,
+                "entries_max": 2
+              },
+              "ceiling": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              },
+              "ceiling": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 1,
+                "level_max": 3,
+                "entries_min": 1,
+                "entries_max": 3
+              }
+            }
+          }
+        }
+      ],
+      "lottery_read": {
+        "worst_case_entries": 1,
+        "best_case_entries": 2,
+        "below_level_I_possible": false,
+        "socs_considered": [
+          "15-2051",
+          "15-1243",
+          "15-1252"
+        ],
+        "socs_missing": [],
+        "read": "BRACKET-UNRESOLVED",
+        "why": "the floor falls inside an OEWS percentile interval that straddles a level cut-off"
+      },
+      "role_id": "p000-klaviyoinc-analyticsenginee",
+      "scorer": {
+        "recommendation": "Apply",
+        "reason": "composite 0.315 ≥ 0.3, gates healthy",
+        "composite": 0.315,
+        "arithmetic": "(0.9·0.35) × 1 × 1 = 0.315",
+        "source": "role-scores.json"
+      },
+      "next_action": "the national ladder cannot settle the level; check the OFLC wage table for the worksite before negotiating"
+    },
+    {
+      "kind": "posting",
+      "company": "SIGMA COMPUTING INC",
+      "title": "Data Engineer",
+      "location": {
+        "value": "New York City, NY",
+        "source": "record"
+      },
+      "url": "https://job-boards.greenhouse.io/sigmacomputing/jobs/7809974003",
+      "board": {
+        "ats": "greenhouse",
+        "slug": "sigmacomputing"
+      },
+      "liveness": {
+        "value": "live",
+        "source": "record",
+        "basis": "present in the board API at fetch time; cross-check with npm run ats:liveness"
+      },
+      "sponsorship": {
+        "tier": "Proven",
+        "p": 0.9,
+        "approvals": 136,
+        "approval_rate": 100.0,
+        "top_titles": [
+          "Software Engineer",
+          "Senior Analytics Engineer",
+          "Engineering Manager",
+          "Field and Partner Marketing Manager"
+        ],
+        "company_median_salary": 150000.0,
+        "basis": "80 Days CSV row (company-wide counts; no SOC, no title-level wages)"
+      },
+      "status": "ASSESSED",
+      "reason": null,
+      "pay": {
+        "value": {
+          "min": 140000.0,
+          "max": 180000.0,
+          "currency": "USD",
+          "interval": "annual (text cue)",
+          "method": "parsed-text",
+          "quote": "tronomer, Airflow, Dagster) Advanced knowledge of working with public clouds (e.g., AWS, GCP) Additional Job details The base salary range for this position is $140k - $180k annually. Compensation may vary outside of this range depending on a number of"
+        },
+        "source": "record"
+      },
+      "soc_family": "data-engineer",
+      "per_soc": [
+        {
+          "soc": "15-1243",
+          "why_plausible": {
+            "value": "O*NET 15-1243.00 / 15-1243.01 list 'Big Data Engineer'",
+            "source": "record"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Database Architects",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 81630.0,
+              "25": 107900.0,
+              "50": 135980.0,
+              "75": 169480.0,
+              "90": 209990.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              },
+              "ceiling": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 4,
+                "level_max": 4,
+                "entries_min": 4,
+                "entries_max": 4
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 1,
+                "level_max": 3,
+                "entries_min": 1,
+                "entries_max": 3
+              },
+              "ceiling": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              }
+            }
+          }
+        },
+        {
+          "soc": "15-1242",
+          "why_plausible": {
+            "value": "O*NET 15-1242.00 Database Administrators lists 'Data Engineer'",
+            "source": "record"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Database Administrators",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 56820.0,
+              "25": 76100.0,
+              "50": 104620.0,
+              "75": 132850.0,
+              "90": 160890.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 4,
+                "level_max": 4,
+                "entries_min": 4,
+                "entries_max": 4
+              },
+              "ceiling": {
+                "pct_interval": [
+                  90,
+                  100
+                ],
+                "level_min": 4,
+                "level_max": 4,
+                "entries_min": 4,
+                "entries_max": 4
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              },
+              "ceiling": {
+                "pct_interval": [
+                  90,
+                  100
+                ],
+                "level_min": 4,
+                "level_max": 4,
+                "entries_min": 4,
+                "entries_max": 4
+              }
+            }
+          }
+        },
+        {
+          "soc": "15-1252",
+          "why_plausible": {
+            "value": "data-platform engineering roles are often filed as Software Developers",
+            "source": "your-input"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Software Developers",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 79850.0,
+              "25": 103050.0,
+              "50": 133080.0,
+              "75": 169000.0,
+              "90": 211450.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              },
+              "ceiling": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 4,
+                "level_max": 4,
+                "entries_min": 4,
+                "entries_max": 4
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 1,
+                "level_max": 3,
+                "entries_min": 1,
+                "entries_max": 3
+              },
+              "ceiling": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              }
+            }
+          }
+        }
+      ],
+      "lottery_read": {
+        "worst_case_entries": 3,
+        "best_case_entries": 4,
+        "below_level_I_possible": false,
+        "socs_considered": [
+          "15-1243",
+          "15-1242",
+          "15-1252"
+        ],
+        "socs_missing": [],
+        "read": "CLEARS-LEVEL-II",
+        "why": "the posted floor reaches at least the Level II proxy under every plausible SOC"
+      },
+      "role_id": "p001-sigmacomputingin-dataengineer",
+      "scorer": {
+        "recommendation": "Apply",
+        "reason": "composite 0.315 ≥ 0.3, gates healthy",
+        "composite": 0.315,
+        "arithmetic": "(0.9·0.35) × 1 × 1 = 0.315",
+        "source": "role-scores.json"
+      },
+      "next_action": "apply/tailor if the scorer agrees; the posted floor already earns 2+ entries under every plausible SOC (national proxy)"
+    },
+    {
+      "kind": "posting",
+      "company": "SIGMA COMPUTING INC",
+      "title": "Data Engineer",
+      "location": {
+        "value": "San Francisco, CA",
+        "source": "record"
+      },
+      "url": "https://job-boards.greenhouse.io/sigmacomputing/jobs/7809973003",
+      "board": {
+        "ats": "greenhouse",
+        "slug": "sigmacomputing"
+      },
+      "liveness": {
+        "value": "live",
+        "source": "record",
+        "basis": "present in the board API at fetch time; cross-check with npm run ats:liveness"
+      },
+      "sponsorship": {
+        "tier": "Proven",
+        "p": 0.9,
+        "approvals": 136,
+        "approval_rate": 100.0,
+        "top_titles": [
+          "Software Engineer",
+          "Senior Analytics Engineer",
+          "Engineering Manager",
+          "Field and Partner Marketing Manager"
+        ],
+        "company_median_salary": 150000.0,
+        "basis": "80 Days CSV row (company-wide counts; no SOC, no title-level wages)"
+      },
+      "status": "ASSESSED",
+      "reason": null,
+      "pay": {
+        "value": {
+          "min": 140000.0,
+          "max": 180000.0,
+          "currency": "USD",
+          "interval": "annual (text cue)",
+          "method": "parsed-text",
+          "quote": "tronomer, Airflow, Dagster) Advanced knowledge of working with public clouds (e.g., AWS, GCP) Additional Job details The base salary range for this position is $140k - $180k annually. Compensation may vary outside of this range depending on a number of"
+        },
+        "source": "record"
+      },
+      "soc_family": "data-engineer",
+      "per_soc": [
+        {
+          "soc": "15-1243",
+          "why_plausible": {
+            "value": "O*NET 15-1243.00 / 15-1243.01 list 'Big Data Engineer'",
+            "source": "record"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Database Architects",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 81630.0,
+              "25": 107900.0,
+              "50": 135980.0,
+              "75": 169480.0,
+              "90": 209990.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              },
+              "ceiling": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 4,
+                "level_max": 4,
+                "entries_min": 4,
+                "entries_max": 4
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 1,
+                "level_max": 3,
+                "entries_min": 1,
+                "entries_max": 3
+              },
+              "ceiling": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              }
+            }
+          }
+        },
+        {
+          "soc": "15-1242",
+          "why_plausible": {
+            "value": "O*NET 15-1242.00 Database Administrators lists 'Data Engineer'",
+            "source": "record"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Database Administrators",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 56820.0,
+              "25": 76100.0,
+              "50": 104620.0,
+              "75": 132850.0,
+              "90": 160890.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 4,
+                "level_max": 4,
+                "entries_min": 4,
+                "entries_max": 4
+              },
+              "ceiling": {
+                "pct_interval": [
+                  90,
+                  100
+                ],
+                "level_min": 4,
+                "level_max": 4,
+                "entries_min": 4,
+                "entries_max": 4
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              },
+              "ceiling": {
+                "pct_interval": [
+                  90,
+                  100
+                ],
+                "level_min": 4,
+                "level_max": 4,
+                "entries_min": 4,
+                "entries_max": 4
+              }
+            }
+          }
+        },
+        {
+          "soc": "15-1252",
+          "why_plausible": {
+            "value": "data-platform engineering roles are often filed as Software Developers",
+            "source": "your-input"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Software Developers",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 79850.0,
+              "25": 103050.0,
+              "50": 133080.0,
+              "75": 169000.0,
+              "90": 211450.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              },
+              "ceiling": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 4,
+                "level_max": 4,
+                "entries_min": 4,
+                "entries_max": 4
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 1,
+                "level_max": 3,
+                "entries_min": 1,
+                "entries_max": 3
+              },
+              "ceiling": {
+                "pct_interval": [
+                  75,
+                  90
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              }
+            }
+          }
+        }
+      ],
+      "lottery_read": {
+        "worst_case_entries": 3,
+        "best_case_entries": 4,
+        "below_level_I_possible": false,
+        "socs_considered": [
+          "15-1243",
+          "15-1242",
+          "15-1252"
+        ],
+        "socs_missing": [],
+        "read": "CLEARS-LEVEL-II",
+        "why": "the posted floor reaches at least the Level II proxy under every plausible SOC"
+      },
+      "role_id": "p002-sigmacomputingin-dataengineer",
+      "scorer": {
+        "recommendation": "Apply",
+        "reason": "composite 0.315 ≥ 0.3, gates healthy",
+        "composite": 0.315,
+        "arithmetic": "(0.9·0.35) × 1 × 1 = 0.315",
+        "source": "role-scores.json"
+      },
+      "next_action": "apply/tailor if the scorer agrees; the posted floor already earns 2+ entries under every plausible SOC (national proxy)"
+    }
+  ],
+  "offers": [
+    {
+      "kind": "offer",
+      "label": "A",
+      "company": null,
+      "title": "Data Analyst",
+      "location": {
+        "value": "Chicago, IL",
+        "source": "your-input"
+      },
+      "hypothetical": true,
+      "status": "ASSESSED",
+      "reason": null,
+      "pay": {
+        "value": {
+          "min": 85000.0,
+          "max": 85000.0,
+          "currency": "USD",
+          "interval": "annual",
+          "method": "offer"
+        },
+        "source": "your-input"
+      },
+      "soc_family": "data-analyst",
+      "per_soc": [
+        {
+          "soc": "15-2051",
+          "why_plausible": {
+            "value": "O*NET 15-2051.00 Data Scientists lists 'Data Analyst'",
+            "source": "record"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Data Scientists",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 63650.0,
+              "25": 82630.0,
+              "50": 112590.0,
+              "75": 155810.0,
+              "90": 194410.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 1,
+                "level_max": 2,
+                "entries_min": 1,
+                "entries_max": 2
+              },
+              "ceiling": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 1,
+                "level_max": 2,
+                "entries_min": 1,
+                "entries_max": 2
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              },
+              "ceiling": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              }
+            }
+          }
+        },
+        {
+          "soc": "15-2041",
+          "why_plausible": {
+            "value": "O*NET 15-2041.00 Statisticians lists 'Data Analyst'",
+            "source": "record"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Statisticians",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 60390.0,
+              "25": 79210.0,
+              "50": 103300.0,
+              "75": 137610.0,
+              "90": 170700.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 1,
+                "level_max": 2,
+                "entries_min": 1,
+                "entries_max": 2
+              },
+              "ceiling": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 1,
+                "level_max": 2,
+                "entries_min": 1,
+                "entries_max": 2
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              },
+              "ceiling": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              }
+            }
+          }
+        },
+        {
+          "soc": "15-1243",
+          "why_plausible": {
+            "value": "O*NET 15-1243.00 Database Architects lists 'Data Analyst'",
+            "source": "record"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Database Architects",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 81630.0,
+              "25": 107900.0,
+              "50": 135980.0,
+              "75": 169480.0,
+              "90": 209990.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              },
+              "ceiling": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 0,
+                "entries_min": 0,
+                "entries_max": 0
+              },
+              "ceiling": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 0,
+                "entries_min": 0,
+                "entries_max": 0
+              }
+            }
+          }
+        },
+        {
+          "soc": "13-1161",
+          "why_plausible": {
+            "value": "marketing/growth data-analyst roles are often filed as Market Research Analysts",
+            "source": "your-input"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Market Research Analysts and Marketing Specialists",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 42070.0,
+              "25": 56220.0,
+              "50": 76950.0,
+              "75": 104870.0,
+              "90": 144610.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              },
+              "ceiling": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 1,
+                "level_max": 3,
+                "entries_min": 1,
+                "entries_max": 3
+              },
+              "ceiling": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 1,
+                "level_max": 3,
+                "entries_min": 1,
+                "entries_max": 3
+              }
+            }
+          }
+        }
+      ],
+      "lottery_read": {
+        "worst_case_entries": 0,
+        "best_case_entries": 4,
+        "below_level_I_possible": true,
+        "socs_considered": [
+          "15-2051",
+          "15-2041",
+          "15-1243",
+          "13-1161"
+        ],
+        "socs_missing": [],
+        "read": "SOC-SENSITIVE",
+        "why": "the SOC the employer files under decides whether the floor earns 1 entry or 2+"
+      },
+      "next_action": "before negotiating, ask the recruiter which SOC code and wage level the LCA will use; the answer decides 1 vs 2+ entries"
+    },
+    {
+      "kind": "offer",
+      "label": "B",
+      "company": null,
+      "title": "Business Intelligence Analyst",
+      "location": {
+        "value": "Boston, MA",
+        "source": "your-input"
+      },
+      "hypothetical": true,
+      "status": "ASSESSED",
+      "reason": null,
+      "pay": {
+        "value": {
+          "min": 72000.0,
+          "max": 72000.0,
+          "currency": "USD",
+          "interval": "annual",
+          "method": "offer"
+        },
+        "source": "your-input"
+      },
+      "soc_family": "business-intelligence",
+      "per_soc": [
+        {
+          "soc": "15-2051",
+          "why_plausible": {
+            "value": "O*NET 15-2051.01 Business Intelligence Analysts lists 'Business Intelligence Analyst (BI Analyst)'",
+            "source": "record"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Data Scientists",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 63650.0,
+              "25": 82630.0,
+              "50": 112590.0,
+              "75": 155810.0,
+              "90": 194410.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              },
+              "ceiling": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 0,
+                "entries_min": 0,
+                "entries_max": 0
+              },
+              "ceiling": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 0,
+                "entries_min": 0,
+                "entries_max": 0
+              }
+            }
+          }
+        },
+        {
+          "soc": "15-1211",
+          "why_plausible": {
+            "value": "BI roles that configure reporting systems are often filed as Computer Systems Analysts",
+            "source": "your-input"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Computer Systems Analysts",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 63160.0,
+              "25": 80900.0,
+              "50": 103790.0,
+              "75": 132360.0,
+              "90": 166030.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              },
+              "ceiling": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 0,
+                "entries_min": 0,
+                "entries_max": 0
+              },
+              "ceiling": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 0,
+                "entries_min": 0,
+                "entries_max": 0
+              }
+            }
+          }
+        },
+        {
+          "soc": "15-1243",
+          "why_plausible": {
+            "value": "BI developer/engineer roles that own warehouse models",
+            "source": "your-input"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Database Architects",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 81630.0,
+              "25": 107900.0,
+              "50": 135980.0,
+              "75": 169480.0,
+              "90": 209990.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  0,
+                  10
+                ],
+                "level_min": 0,
+                "level_max": 0,
+                "entries_min": 0,
+                "entries_max": 0
+              },
+              "ceiling": {
+                "pct_interval": [
+                  0,
+                  10
+                ],
+                "level_min": 0,
+                "level_max": 0,
+                "entries_min": 0,
+                "entries_max": 0
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  0,
+                  10
+                ],
+                "level_min": 0,
+                "level_max": 0,
+                "entries_min": 0,
+                "entries_max": 0
+              },
+              "ceiling": {
+                "pct_interval": [
+                  0,
+                  10
+                ],
+                "level_min": 0,
+                "level_max": 0,
+                "entries_min": 0,
+                "entries_max": 0
+              }
+            }
+          }
+        }
+      ],
+      "lottery_read": {
+        "worst_case_entries": 0,
+        "best_case_entries": 1,
+        "below_level_I_possible": true,
+        "socs_considered": [
+          "15-2051",
+          "15-1211",
+          "15-1243"
+        ],
+        "socs_missing": [],
+        "read": "LEVEL-I-AT-BEST",
+        "why": "the posted floor reaches at most the Level I proxy under every plausible SOC"
+      },
+      "next_action": "1 entry at the posted floor; negotiate above the next percentile point, or weigh this role's single-entry odds"
+    },
+    {
+      "kind": "offer",
+      "label": "C",
+      "company": null,
+      "title": "Data Engineer",
+      "location": {
+        "value": "New York, NY",
+        "source": "your-input"
+      },
+      "hypothetical": true,
+      "status": "ASSESSED",
+      "reason": null,
+      "pay": {
+        "value": {
+          "min": 105000.0,
+          "max": 105000.0,
+          "currency": "USD",
+          "interval": "annual",
+          "method": "offer"
+        },
+        "source": "your-input"
+      },
+      "soc_family": "data-engineer",
+      "per_soc": [
+        {
+          "soc": "15-1243",
+          "why_plausible": {
+            "value": "O*NET 15-1243.00 / 15-1243.01 list 'Big Data Engineer'",
+            "source": "record"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Database Architects",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 81630.0,
+              "25": 107900.0,
+              "50": 135980.0,
+              "75": 169480.0,
+              "90": 209990.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              },
+              "ceiling": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 0,
+                "entries_min": 0,
+                "entries_max": 0
+              },
+              "ceiling": {
+                "pct_interval": [
+                  10,
+                  25
+                ],
+                "level_min": 0,
+                "level_max": 0,
+                "entries_min": 0,
+                "entries_max": 0
+              }
+            }
+          }
+        },
+        {
+          "soc": "15-1242",
+          "why_plausible": {
+            "value": "O*NET 15-1242.00 Database Administrators lists 'Data Engineer'",
+            "source": "record"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Database Administrators",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 56820.0,
+              "25": 76100.0,
+              "50": 104620.0,
+              "75": 132850.0,
+              "90": 160890.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              },
+              "ceiling": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 3,
+                "level_max": 4,
+                "entries_min": 3,
+                "entries_max": 4
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 1,
+                "level_max": 3,
+                "entries_min": 1,
+                "entries_max": 3
+              },
+              "ceiling": {
+                "pct_interval": [
+                  50,
+                  75
+                ],
+                "level_min": 1,
+                "level_max": 3,
+                "entries_min": 1,
+                "entries_max": 3
+              }
+            }
+          }
+        },
+        {
+          "soc": "15-1252",
+          "why_plausible": {
+            "value": "data-platform engineering roles are often filed as Software Developers",
+            "source": "your-input"
+          },
+          "status": "ok",
+          "occ_title": {
+            "value": "Software Developers",
+            "source": "record"
+          },
+          "ladder": {
+            "value": {
+              "10": 79850.0,
+              "25": 103050.0,
+              "50": 133080.0,
+              "75": 169000.0,
+              "90": 211450.0
+            },
+            "source": "record",
+            "file": "national_M2024_dl.xlsx (May 2024, U.S.)"
+          },
+          "rules": {
+            "current": {
+              "floor": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 1,
+                "level_max": 2,
+                "entries_min": 1,
+                "entries_max": 2
+              },
+              "ceiling": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 1,
+                "level_max": 2,
+                "entries_min": 1,
+                "entries_max": 2
+              }
+            },
+            "dol-nprm-2026": {
+              "floor": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              },
+              "ceiling": {
+                "pct_interval": [
+                  25,
+                  50
+                ],
+                "level_min": 0,
+                "level_max": 1,
+                "entries_min": 0,
+                "entries_max": 1
+              }
+            }
+          }
+        }
+      ],
+      "lottery_read": {
+        "worst_case_entries": 0,
+        "best_case_entries": 4,
+        "below_level_I_possible": true,
+        "socs_considered": [
+          "15-1243",
+          "15-1242",
+          "15-1252"
+        ],
+        "socs_missing": [],
+        "read": "SOC-SENSITIVE",
+        "why": "the SOC the employer files under decides whether the floor earns 1 entry or 2+"
+      },
+      "next_action": "before negotiating, ask the recruiter which SOC code and wage level the LCA will use; the answer decides 1 vs 2+ entries"
+    },
+    {
+      "kind": "offer",
+      "label": "D",
+      "company": null,
+      "title": "Product Analyst",
+      "location": {
+        "value": "Chicago, IL",
+        "source": "your-input"
+      },
+      "hypothetical": true,
+      "status": "MANUAL-CHECK",
+      "reason": "title-not-in-soc-map (G3: add a family or skip)",
+      "pay": {
+        "value": {
+          "min": 90000.0,
+          "max": 90000.0,
+          "currency": "USD",
+          "interval": "annual",
+          "method": "offer"
+        },
+        "source": "your-input"
+      },
+      "next_action": "add a title family to soc-map.json with its plausible SOC codes, or skip the role"
+    }
+  ],
+  "never_computed": [
+    "selection probability (USCIS has not published the registration pool by wage level)",
+    "the worksite prevailing wage (no OFLC table in the repo)",
+    "the SOC code the employer will file (an employer decision; G3 lists only plausible ones)"
+  ]
+}

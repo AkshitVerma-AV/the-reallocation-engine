@@ -1,0 +1,4 @@
+$ node scripts/conformance.mjs scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/ course/2026fa/submissions/AkshitVerma-AV/mode-build/runs/
+conformance: 45 files (29 json · 4 py · 12 md)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+[exit 0]

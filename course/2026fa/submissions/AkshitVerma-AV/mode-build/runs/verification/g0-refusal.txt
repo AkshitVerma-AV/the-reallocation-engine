@@ -1,0 +1,5 @@
+$ python3 scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/lottery_weight.py --persona scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/persona-no-stem.json --soc-map scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/soc-map.json --offers scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/offers-scenario.json --as-of 2027-01-15 --out-dir course/2026fa/submissions/AkshitVerma-AV/mode-build/runs/verification/g0-refusal-out
+✗ G0 failed: no H-1B registration window is reachable before work authorization ends — the mode refuses to bracket wages for a lottery the persona cannot enter
+[exit 3]
+$ ls course/2026fa/submissions/AkshitVerma-AV/mode-build/runs/verification/g0-refusal-out
+ls: cannot access 'course/2026fa/submissions/AkshitVerma-AV/mode-build/runs/verification/g0-refusal-out': No such file or directory

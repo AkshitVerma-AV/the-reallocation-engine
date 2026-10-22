@@ -1,0 +1,9 @@
+{
+  "_about": "your-input. HYPOTHETICAL offers for the fictional persona Jack Spencer. Amounts are scenario values chosen by the student to test the mode; no company made these offers, so no company is named.",
+  "offers": [
+    {"label": "A", "title": "Data Analyst", "worksite": "Chicago, IL", "base_annual_usd": 85000, "hypothetical": true},
+    {"label": "B", "title": "Business Intelligence Analyst", "worksite": "Boston, MA", "base_annual_usd": 72000, "hypothetical": true},
+    {"label": "C", "title": "Data Engineer", "worksite": "New York, NY", "base_annual_usd": 105000, "hypothetical": true},
+    {"label": "D", "title": "Product Analyst", "worksite": "Chicago, IL", "base_annual_usd": 90000, "hypothetical": true}
+  ]
+}

@@ -1,0 +1,18 @@
+$ python3 scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/verify_runs.py course/2026fa/submissions/AkshitVerma-AV/mode-build/runs/run-4-live course/2026fa/submissions/AkshitVerma-AV/mode-build/runs/run-5-replay
+1. live run-4-live vs replay run-5-replay decisions identical: True (7 rows)
+   audit identical: True {'boards_fetched': 16, 'boards_unresolved': 0, 'postings_total': 1264, 'data_title_postings': 20, 'excluded_title_rule': 14, 'excluded_non_us': 3, 'entry_eligible_us': 3}
+2. 13-1161 xlsx P50    76,950  compact-CSV median    76,950  match=True
+2. 15-1211 xlsx P50   103,790  compact-CSV median   103,790  match=True
+2. 15-1242 xlsx P50   104,620  compact-CSV median   104,620  match=True
+2. 15-1243 xlsx P50   135,980  compact-CSV median   135,980  match=True
+2. 15-1252 xlsx P50   133,080  compact-CSV median   133,080  match=True
+2. 15-2041 xlsx P50   103,300  compact-CSV median   103,300  match=True
+2. 15-2051 xlsx P50   112,590  compact-CSV median   112,590  match=True
+3. KLAVIYO INC          approvals log=154 csv=154  rate log=97.47 csv=97.47  tier=Proven
+3. SIGMA COMPUTING INC  approvals log=136 csv=136  rate log=100.0 csv=100.0  tier=Proven
+3. SIGMA COMPUTING INC  approvals log=136 csv=136  rate log=100.0 csv=100.0  tier=Proven
+4. KLAVIYO INC          composite 0.315  hand: 0.90*0.35*1.0*1.0 = 0.315  | (0.9·0.35) × 1 × 1 = 0.315
+4. SIGMA COMPUTING INC  composite 0.315  hand: 0.90*0.35*1.0*1.0 = 0.315  | (0.9·0.35) × 1 × 1 = 0.315
+4. SIGMA COMPUTING INC  composite 0.315  hand: 0.90*0.35*1.0*1.0 = 0.315  | (0.9·0.35) × 1 × 1 = 0.315
+5. 'probability' key present: False | phone/executive columns present: False
+[exit 0]

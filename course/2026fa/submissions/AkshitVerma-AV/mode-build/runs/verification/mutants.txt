@@ -1,0 +1,6 @@
+$ python3 scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/BROKEN-mutants.py
+KILLED    strict-edge (> not >=)             1 failing test(s): test_exactly_at_median_counts_as_reached
+KILLED    interpolate a point estimate       8 failing test(s): test_112k_analytics_engineer_is_unresolved_not_guessed, test_85k_data_analyst_is_soc_sensitive, test_below_p10_is_below_level_one, test_between_p25_and_p50_is_one_or_two …
+KILLED    read the ceiling, not the floor    2 failing test(s): test_confirmed_run_buckets_and_calls_real_scorer, test_read_uses_the_floor_not_the_ceiling
+3/3 mutants killed
+[exit 0]

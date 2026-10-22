@@ -1,0 +1,10 @@
+{
+  "_about": "SYNTHETIC test fixture: board map for board-snapshot-fixture.json. One entry is deliberately unconfirmed (G1).",
+  "boards": [
+    {"company_name": "KLAVIYO INC", "ats": "greenhouse", "slug": "klaviyo", "confirmed": true, "confirmed_by": "test fixture"},
+    {"company_name": "SIGMA COMPUTING INC", "ats": "greenhouse", "slug": "sigmacomputing", "confirmed": true, "confirmed_by": "test fixture"},
+    {"company_name": "ZOOX INC", "ats": "lever", "slug": "zoox", "confirmed": true, "confirmed_by": "test fixture"},
+    {"company_name": "ROKU INC", "ats": "greenhouse", "slug": "roku", "confirmed": true, "confirmed_by": "test fixture"},
+    {"company_name": "GUSTO INC", "ats": "greenhouse", "slug": "gusto", "confirmed": false}
+  ]
+}

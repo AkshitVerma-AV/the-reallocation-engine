@@ -1,0 +1,61 @@
+{
+  "_about": "your-input (gate G3). Title family -> SOC codes an employer could plausibly file an LCA under. Families are matched in order; the first title_pattern that matches wins. 'record' means the O*NET alternate-title sample in data/bls/compact/soc_occupation_compact.csv lists that exact title under that occupation; 'your-input' means a human added it with the reason given. 'pruned' lists record-backed codes a human removed, with the reason. A family is used only when confirmed is true. The employer, not this file, picks the SOC that is filed.",
+  "drafted_by": "AI agent (Claude Code), 2026-10-19, from the O*NET alternate-title sample; awaiting human review",
+  "confirmed_by": "Akshit Verma (G3, 2026-10-19) — confirmed all four families as drafted, after run-1",
+  "families": [
+    {
+      "family": "analytics-engineer",
+      "title_pattern": "\\banalytics engineer",
+      "confirmed": true,
+      "socs": [
+        {"soc": "15-2051", "why": "analytics engineering sits on the analysis side of data work; no O*NET alternate title 'Analytics Engineer' in the sample", "source": "your-input"},
+        {"soc": "15-1243", "why": "builds warehouse models and pipelines (Database Architects / Data Warehousing Specialists)", "source": "your-input"},
+        {"soc": "15-1252", "why": "data-platform engineering roles are often filed as Software Developers", "source": "your-input"}
+      ],
+      "pruned": []
+    },
+    {
+      "family": "business-intelligence",
+      "title_pattern": "\\bbusiness intelligence|\\bbi (analyst|developer|engineer)",
+      "confirmed": true,
+      "socs": [
+        {"soc": "15-2051", "why": "O*NET 15-2051.01 Business Intelligence Analysts lists 'Business Intelligence Analyst (BI Analyst)'", "source": "record"},
+        {"soc": "15-1211", "why": "BI roles that configure reporting systems are often filed as Computer Systems Analysts", "source": "your-input"},
+        {"soc": "15-1243", "why": "BI developer/engineer roles that own warehouse models", "source": "your-input"}
+      ],
+      "pruned": [
+        {"soc": "13-1071", "why": "O*NET lists 'Business Intelligence Engineer' under Human Resources Specialists (people-analytics sense); not a plausible filing for a data-team BI role"}
+      ]
+    },
+    {
+      "family": "data-engineer",
+      "title_pattern": "\\bdata engineer|\\betl\\b|\\bdata warehous",
+      "confirmed": true,
+      "socs": [
+        {"soc": "15-1243", "why": "O*NET 15-1243.00 / 15-1243.01 list 'Big Data Engineer'", "source": "record"},
+        {"soc": "15-1242", "why": "O*NET 15-1242.00 Database Administrators lists 'Data Engineer'", "source": "record"},
+        {"soc": "15-1252", "why": "data-platform engineering roles are often filed as Software Developers", "source": "your-input"}
+      ],
+      "pruned": [
+        {"soc": "11-9041", "why": "O*NET lists 'Data Engineering Manager/Director' (management); not an entry-level filing"}
+      ]
+    },
+    {
+      "family": "data-analyst",
+      "title_pattern": "\\bdata analyst",
+      "confirmed": true,
+      "socs": [
+        {"soc": "15-2051", "why": "O*NET 15-2051.00 Data Scientists lists 'Data Analyst'", "source": "record"},
+        {"soc": "15-2041", "why": "O*NET 15-2041.00 Statisticians lists 'Data Analyst'", "source": "record"},
+        {"soc": "15-1243", "why": "O*NET 15-1243.00 Database Architects lists 'Data Analyst'", "source": "record"},
+        {"soc": "13-1161", "why": "marketing/growth data-analyst roles are often filed as Market Research Analysts", "source": "your-input"}
+      ],
+      "pruned": [
+        {"soc": "13-2099", "why": "O*NET lists 'Data Analyst' under 13-2099.01 Financial Quantitative Analysts; keep only for quant-finance postings"},
+        {"soc": "15-2099", "why": "O*NET lists 'Data Analyst' under 15-2099.01 Bioinformatics Technicians; keep only for bioinformatics postings"},
+        {"soc": "19-3022", "why": "O*NET lists 'Data Analyst' under Survey Researchers; keep only for survey-research postings"},
+        {"soc": "19-4061", "why": "O*NET lists 'Data Analyst' under Social Science Research Assistants; keep only for academic research-assistant postings"}
+      ]
+    }
+  ]
+}

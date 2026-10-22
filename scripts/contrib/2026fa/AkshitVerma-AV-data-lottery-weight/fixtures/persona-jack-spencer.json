@@ -1,0 +1,42 @@
+{
+  "_fictional": "FICTIONAL PERSONA - safe to commit. Every field below is your-input.",
+  "name": "Jack Spencer",
+  "email": "jack.spencer@example.com",
+  "home_city": "Chicago, IL",
+  "program": "MS Information Systems (STEM-designated)",
+  "visa": "F-1, pre-OPT (OPT not yet approved); will need H-1B sponsorship later",
+  "graduation": "2026-12",
+  "opt_start_date": "2027-01-23",
+  "opt_end_date": "2028-01-22",
+  "stem_opt_eligible": true,
+  "stem_opt_months": 24,
+  "unemployment_ceiling_days": 90,
+  "hiring_lag_days": 60,
+  "registration_windows": [
+    {"fy": 2028, "opens": "2027-03-01", "assumed": true, "note": "FY2027 ran 2026-03-04 to 2026-03-19; FY2028 dates not announced as of 2026-10-19"},
+    {"fy": 2029, "opens": "2028-03-01", "assumed": true},
+    {"fy": 2030, "opens": "2029-03-01", "assumed": true},
+    {"fy": 2031, "opens": "2030-03-01", "assumed": true}
+  ],
+  "target_title_patterns": [
+    "\\bdata (analyst|engineer)",
+    "\\banalytics engineer",
+    "\\bbusiness intelligence",
+    "\\bbi (analyst|developer|engineer)",
+    "\\betl\\b",
+    "\\bdata warehous"
+  ],
+  "exclude_posting_title_patterns": [
+    "\\b(senior|sr\\.?|staff|principal|lead|manager|director|head|vp|vice president)\\b",
+    "\\b(ii|iii|iv)\\b",
+    "\\bintern(ship)?\\b",
+    "\\b(contract|student worker|part[- ]time|co-?op|temporary)\\b",
+    "program manager"
+  ],
+  "exclude_posting_location_patterns": [
+    "india", "bengaluru", "bangalore", "hyderabad", "pune", "chennai",
+    "mexico", "tijuana", "canada", "toronto", "ontario", "vancouver",
+    "united kingdom", "london", "ireland", "dublin", "poland", "germany",
+    "singapore", "brazil", "australia", "japan", "philippines"
+  ]
+}

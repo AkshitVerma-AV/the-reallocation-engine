@@ -1,0 +1,422 @@
+{
+  "recipe": "data-lottery-weight",
+  "recipe_version": "0.1.0",
+  "as_of": "2026-10-19",
+  "run": {
+    "command": "scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/lottery_weight.py --persona scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/persona-jack-spencer.json --soc-map scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/soc-map.json --boards scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/boards.json --live --offers scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/offers-scenario.json --out-dir course/2026fa/submissions/AkshitVerma-AV/mode-build/runs/run-1",
+    "persona": "scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/persona-jack-spencer.json",
+    "persona_fictional": true,
+    "boards": "scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/boards.json",
+    "soc_map": "scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/soc-map.json",
+    "offers": "scripts/contrib/2026fa/AkshitVerma-AV-data-lottery-weight/fixtures/offers-scenario.json",
+    "board_mode": "live"
+  },
+  "sources": {
+    "oews": "data/bls/oesm24nat/national_M2024_dl.xlsx (BLS OEWS May 2024, national, detailed occupations)",
+    "sponsorship": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv (columns kept: ['company_name', 'state', 'Total Approvals', 'Total Denials', 'Approval_Rate', 'median_salary_offered', 'top_job_titles_sponsored'])",
+    "scorer": "scripts/score/role-scorer.mjs",
+    "tier_rule": {
+      "value": {
+        "version": "tier-rule v0.1.0",
+        "Proven": "approvals >= 50 and approval_rate >= 90 -> p 0.90",
+        "Likely": "approvals >= 10 -> p 0.60",
+        "Possible": "approvals 1-9 -> p 0.40",
+        "None": "approvals == 0 or no row -> p 0.00"
+      },
+      "source": "your-input"
+    },
+    "rules": {
+      "current": {
+        "thresholds": [
+          17,
+          34,
+          50,
+          67
+        ],
+        "status": "in force",
+        "basis": "OFLC four-level structure, commonly cited as ~17th/34th/50th/67th OEWS percentiles; used by the weighted selection rule (90 FR 60864, effective 2026-02-27)"
+      },
+      "dol-nprm-2026": {
+        "thresholds": [
+          34,
+          52,
+          70,
+          88
+        ],
+        "status": "PROPOSED, NOT IN FORCE",
+        "basis": "DOL proposed rule published 2026-03-27 (docket ETA-2026-0001); not final as of the recipe date"
+      }
+    },
+    "soc_map_confirmed_by": null
+  },
+  "timeline": {
+    "authorized_through": {
+      "value": "2030-01-22",
+      "source": "your-input",
+      "basis": "opt_end_date + 24 months STEM OPT"
+    },
+    "stem_opt_eligible": {
+      "value": true,
+      "source": "your-input"
+    },
+    "attempts": [
+      {
+        "fiscal_year": 2028,
+        "opens": {
+          "value": "2027-03-01",
+          "source": "your-input",
+          "assumed": true
+        },
+        "reachable": true,
+        "why_not": []
+      },
+      {
+        "fiscal_year": 2029,
+        "opens": {
+          "value": "2028-03-01",
+          "source": "your-input",
+          "assumed": true
+        },
+        "reachable": true,
+        "why_not": []
+      },
+      {
+        "fiscal_year": 2030,
+        "opens": {
+          "value": "2029-03-01",
+          "source": "your-input",
+          "assumed": true
+        },
+        "reachable": true,
+        "why_not": []
+      },
+      {
+        "fiscal_year": 2031,
+        "opens": {
+          "value": "2030-03-01",
+          "source": "your-input",
+          "assumed": true
+        },
+        "reachable": false,
+        "why_not": [
+          "opens 2030-03-01, after work authorization ends 2030-01-22"
+        ]
+      }
+    ],
+    "attempts_reachable": 3,
+    "next_window": 2028,
+    "offer_needed_before": "2027-03-01",
+    "scorer_factor": 1.0,
+    "slack_days": 90,
+    "formula": "factor = min(1, (opt_start + ceiling − max(as_of + lag, opt_start)) / ceiling)",
+    "assumptions": {
+      "hiring_lag_days": {
+        "value": 60,
+        "source": "your-input"
+      },
+      "unemployment_ceiling_days": {
+        "value": 90,
+        "source": "your-input"
+      },
+      "opt_start_date": {
+        "value": "2027-01-23",
+        "source": "your-input"
+      },
+      "opt_end_date": {
+        "value": "2028-01-22",
+        "source": "your-input"
+      }
+    }
+  },
+  "audit": {
+    "boards_fetched": 16,
+    "boards_unresolved": 0,
+    "postings_total": 1264,
+    "data_title_postings": 20,
+    "excluded_title_rule": 14,
+    "excluded_non_us": 3,
+    "entry_eligible_us": 3
+  },
+  "counts": {
+    "postings_assessed": 0,
+    "by_read": {},
+    "manual_check": 3,
+    "offers": 4
+  },
+  "rows": [
+    {
+      "kind": "posting",
+      "company": "KLAVIYO INC",
+      "title": "Analytics Engineer",
+      "location": {
+        "value": "Boston, MA",
+        "source": "record"
+      },
+      "url": "https://www.klaviyo.com/careers/jobs/7737707003?gh_jid=7737707003",
+      "board": {
+        "ats": "greenhouse",
+        "slug": "klaviyo"
+      },
+      "liveness": {
+        "value": "live",
+        "source": "record",
+        "basis": "present in the board API at fetch time; cross-check with npm run ats:liveness"
+      },
+      "sponsorship": {
+        "tier": "Proven",
+        "p": 0.9,
+        "approvals": 154,
+        "approval_rate": 97.47,
+        "top_titles": [
+          "Business Intelligence Engineer",
+          "Software Engineer II",
+          "Engineering Manager Data Exchange",
+          "Engineering Manager II- SMS",
+          "Senior Software Engineer"
+        ],
+        "company_median_salary": 126000.0,
+        "basis": "80 Days CSV row (company-wide counts; no SOC, no title-level wages)"
+      },
+      "status": "MANUAL-CHECK",
+      "reason": "soc-map-not-confirmed (G3: family 'analytics-engineer' awaits a human)",
+      "pay": {
+        "value": {
+          "min": 112000.0,
+          "max": 168000.0,
+          "currency": "USD",
+          "interval": "unstated (Greenhouse pay_input_ranges)",
+          "method": "structured",
+          "range_titles": [
+            "Base Pay Range For US Locations:"
+          ],
+          "n_ranges": 1
+        },
+        "source": "record"
+      },
+      "soc_family": "analytics-engineer",
+      "role_id": "p000-klaviyoinc-analyticsenginee",
+      "scorer": {
+        "recommendation": "Apply",
+        "reason": "composite 0.315 ≥ 0.3, gates healthy",
+        "composite": 0.315,
+        "arithmetic": "(0.9·0.35) × 1 × 1 = 0.315",
+        "source": "role-scores.json"
+      },
+      "next_action": "read the posting by hand (soc-map-not-confirmed (G3: family 'analytics-engineer' awaits a human))"
+    },
+    {
+      "kind": "posting",
+      "company": "SIGMA COMPUTING INC",
+      "title": "Data Engineer",
+      "location": {
+        "value": "New York City, NY",
+        "source": "record"
+      },
+      "url": "https://job-boards.greenhouse.io/sigmacomputing/jobs/7809974003",
+      "board": {
+        "ats": "greenhouse",
+        "slug": "sigmacomputing"
+      },
+      "liveness": {
+        "value": "live",
+        "source": "record",
+        "basis": "present in the board API at fetch time; cross-check with npm run ats:liveness"
+      },
+      "sponsorship": {
+        "tier": "Proven",
+        "p": 0.9,
+        "approvals": 136,
+        "approval_rate": 100.0,
+        "top_titles": [
+          "Software Engineer",
+          "Senior Analytics Engineer",
+          "Engineering Manager",
+          "Field and Partner Marketing Manager"
+        ],
+        "company_median_salary": 150000.0,
+        "basis": "80 Days CSV row (company-wide counts; no SOC, no title-level wages)"
+      },
+      "status": "MANUAL-CHECK",
+      "reason": "soc-map-not-confirmed (G3: family 'data-engineer' awaits a human)",
+      "pay": {
+        "value": {
+          "min": 140000.0,
+          "max": 180000.0,
+          "currency": "USD",
+          "interval": "annual (text cue)",
+          "method": "parsed-text",
+          "quote": "tronomer, Airflow, Dagster) Advanced knowledge of working with public clouds (e.g., AWS, GCP) Additional Job details The base salary range for this position is $140k - $180k annually. Compensation may vary outside of this range depending on a number of"
+        },
+        "source": "record"
+      },
+      "soc_family": "data-engineer",
+      "role_id": "p001-sigmacomputingin-dataengineer",
+      "scorer": {
+        "recommendation": "Apply",
+        "reason": "composite 0.315 ≥ 0.3, gates healthy",
+        "composite": 0.315,
+        "arithmetic": "(0.9·0.35) × 1 × 1 = 0.315",
+        "source": "role-scores.json"
+      },
+      "next_action": "read the posting by hand (soc-map-not-confirmed (G3: family 'data-engineer' awaits a human))"
+    },
+    {
+      "kind": "posting",
+      "company": "SIGMA COMPUTING INC",
+      "title": "Data Engineer",
+      "location": {
+        "value": "San Francisco, CA",
+        "source": "record"
+      },
+      "url": "https://job-boards.greenhouse.io/sigmacomputing/jobs/7809973003",
+      "board": {
+        "ats": "greenhouse",
+        "slug": "sigmacomputing"
+      },
+      "liveness": {
+        "value": "live",
+        "source": "record",
+        "basis": "present in the board API at fetch time; cross-check with npm run ats:liveness"
+      },
+      "sponsorship": {
+        "tier": "Proven",
+        "p": 0.9,
+        "approvals": 136,
+        "approval_rate": 100.0,
+        "top_titles": [
+          "Software Engineer",
+          "Senior Analytics Engineer",
+          "Engineering Manager",
+          "Field and Partner Marketing Manager"
+        ],
+        "company_median_salary": 150000.0,
+        "basis": "80 Days CSV row (company-wide counts; no SOC, no title-level wages)"
+      },
+      "status": "MANUAL-CHECK",
+      "reason": "soc-map-not-confirmed (G3: family 'data-engineer' awaits a human)",
+      "pay": {
+        "value": {
+          "min": 140000.0,
+          "max": 180000.0,
+          "currency": "USD",
+          "interval": "annual (text cue)",
+          "method": "parsed-text",
+          "quote": "tronomer, Airflow, Dagster) Advanced knowledge of working with public clouds (e.g., AWS, GCP) Additional Job details The base salary range for this position is $140k - $180k annually. Compensation may vary outside of this range depending on a number of"
+        },
+        "source": "record"
+      },
+      "soc_family": "data-engineer",
+      "role_id": "p002-sigmacomputingin-dataengineer",
+      "scorer": {
+        "recommendation": "Apply",
+        "reason": "composite 0.315 ≥ 0.3, gates healthy",
+        "composite": 0.315,
+        "arithmetic": "(0.9·0.35) × 1 × 1 = 0.315",
+        "source": "role-scores.json"
+      },
+      "next_action": "read the posting by hand (soc-map-not-confirmed (G3: family 'data-engineer' awaits a human))"
+    }
+  ],
+  "offers": [
+    {
+      "kind": "offer",
+      "label": "A",
+      "company": null,
+      "title": "Data Analyst",
+      "location": {
+        "value": "Chicago, IL",
+        "source": "your-input"
+      },
+      "hypothetical": true,
+      "status": "MANUAL-CHECK",
+      "reason": "soc-map-not-confirmed (G3: family 'data-analyst' awaits a human)",
+      "pay": {
+        "value": {
+          "min": 85000.0,
+          "max": 85000.0,
+          "currency": "USD",
+          "interval": "annual",
+          "method": "offer"
+        },
+        "source": "your-input"
+      },
+      "soc_family": "data-analyst"
+    },
+    {
+      "kind": "offer",
+      "label": "B",
+      "company": null,
+      "title": "Business Intelligence Analyst",
+      "location": {
+        "value": "Boston, MA",
+        "source": "your-input"
+      },
+      "hypothetical": true,
+      "status": "MANUAL-CHECK",
+      "reason": "soc-map-not-confirmed (G3: family 'business-intelligence' awaits a human)",
+      "pay": {
+        "value": {
+          "min": 72000.0,
+          "max": 72000.0,
+          "currency": "USD",
+          "interval": "annual",
+          "method": "offer"
+        },
+        "source": "your-input"
+      },
+      "soc_family": "business-intelligence"
+    },
+    {
+      "kind": "offer",
+      "label": "C",
+      "company": null,
+      "title": "Data Engineer",
+      "location": {
+        "value": "New York, NY",
+        "source": "your-input"
+      },
+      "hypothetical": true,
+      "status": "MANUAL-CHECK",
+      "reason": "soc-map-not-confirmed (G3: family 'data-engineer' awaits a human)",
+      "pay": {
+        "value": {
+          "min": 105000.0,
+          "max": 105000.0,
+          "currency": "USD",
+          "interval": "annual",
+          "method": "offer"
+        },
+        "source": "your-input"
+      },
+      "soc_family": "data-engineer"
+    },
+    {
+      "kind": "offer",
+      "label": "D",
+      "company": null,
+      "title": "Product Analyst",
+      "location": {
+        "value": "Chicago, IL",
+        "source": "your-input"
+      },
+      "hypothetical": true,
+      "status": "MANUAL-CHECK",
+      "reason": "title-not-in-soc-map (G3: add a family or skip)",
+      "pay": {
+        "value": {
+          "min": 90000.0,
+          "max": 90000.0,
+          "currency": "USD",
+          "interval": "annual",
+          "method": "offer"
+        },
+        "source": "your-input"
+      }
+    }
+  ],
+  "never_computed": [
+    "selection probability (USCIS has not published the registration pool by wage level)",
+    "the worksite prevailing wage (no OFLC table in the repo)",
+    "the SOC code the employer will file (an employer decision; G3 lists only plausible ones)"
+  ]
+}

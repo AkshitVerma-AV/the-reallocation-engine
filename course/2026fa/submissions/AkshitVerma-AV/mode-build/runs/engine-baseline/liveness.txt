@@ -1,0 +1,15 @@
+$ npm run ats:liveness -- https://www.klaviyo.com/careers/jobs/7737707003?gh_jid=7737707003 https://job-boards.greenhouse.io/sigmacomputing/jobs/7809974003 https://job-boards.greenhouse.io/sigmacomputing/jobs/7809973003 https://job-boards.greenhouse.io/sigmacomputing/jobs/1000000001
+
+> the-reallocation-engine@1.0.0 ats:liveness
+> node scripts/ats/check-liveness.mjs https://www.klaviyo.com/careers/jobs/7737707003?gh_jid=7737707003 https://job-boards.greenhouse.io/sigmacomputing/jobs/7809974003 https://job-boards.greenhouse.io/sigmacomputing/jobs/7809973003 https://job-boards.greenhouse.io/sigmacomputing/jobs/1000000001
+
+Checking 4 URL(s)...
+
+✅ active     https://www.klaviyo.com/careers/jobs/7737707003?gh_jid=7737707003
+✅ active     https://job-boards.greenhouse.io/sigmacomputing/jobs/7809974003
+✅ active     https://job-boards.greenhouse.io/sigmacomputing/jobs/7809973003
+❌ expired    https://job-boards.greenhouse.io/sigmacomputing/jobs/1000000001
+           redirect to https://job-boards.greenhouse.io/sigmacomputing?error=true
+
+Results: 3 active  1 expired  0 uncertain
+[exit 1]
